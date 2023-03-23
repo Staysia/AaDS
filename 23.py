@@ -8,7 +8,7 @@ slovar = {0:'ноль',1:'один',2:'два',3:'три',4:'четыре',5:'п
 with open("text.txt",'r') as f:
     buffer = f.readline(1)
     if not buffer:
-        print("Файл пустой")
+        print("файл пустой")
         kol_1 += 1
     while buffer:
         while buffer:
