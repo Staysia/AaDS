@@ -19,7 +19,7 @@ with open("text.txt",'r') as f:
         print("файл пустой")
         kol_1 += 1
     while buffer:
-        while buffer in ['1', '2', '3', '4', '5', '6', '7']:
+        while buffer in ['0', '1', '2', '3', '4', '5', '6', '7']:
             num = num + buffer
             buffer = f.readline(1)
         if (int(num,8) <= 4096) and (int(num,8) % 2 != 0) and (len(num) % 2 == 1) and (len(num) > k):
