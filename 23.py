@@ -25,7 +25,7 @@ with open("text.txt",'r') as f:
             else:
                 break
             buffer = f.readline(1)
-        if (len(num) > k) and(len(num) % 2 == 1)  and (int(num,8) % 2 != 0) and (int(num,8) <= 4096):
+        if (len(num) > k) and(len(num) % 2 == 0) and (int(num,8) % 2 != 0) and (int(num,8) <= 4096):
             kol_2 += 1
             print(num, end=' ')
         num = ''
