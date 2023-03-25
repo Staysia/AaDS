@@ -20,7 +20,7 @@ while True:
     res_a = (re.findall('[\d]*[\d]{%s}[1357]'%2, a))
     if len(res_a)>0:
         for i in range(len(res_a)):
-            if len(res_a[i])%2 == 0:
+            if len(res_a[i]) % 2 == 0:
                 print(res_a[i])
                 for j in range(len(res_a[i])):
                     if not((res_a[i])[j] in num):
