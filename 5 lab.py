@@ -19,10 +19,8 @@ def F_iter(n):
     if n == 1 or n == 2:
         return 2
     else:
-        # Первые две переменных
         a, b = 1, 2
-        for i in range(2, n+1):
-            # Следующее значение
+        for i in range(2, n+1)
             c = a*b + 2
             a, b = b, c
         return c
