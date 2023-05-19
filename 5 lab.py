@@ -17,7 +17,7 @@ def iter(n):
     r = 1
     for i in range(2, n+1):
             r = r * ((n-2)*(n-1) + 2)
-        return r
+    return r
 
 n = int(input("Введите число n: "))
 
