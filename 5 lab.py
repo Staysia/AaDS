@@ -7,10 +7,13 @@
 import time
 import matplotlib.pyplot as plt
 
+a = []
+b = []
+
 def rec(n):
     if n == 1 or n == 2:
         return 1
-    if n > 2:
+    elif n > 2:
         return rec((n-2)*(n-1) + 2)
 
 def iter(n):
@@ -19,24 +22,15 @@ def iter(n):
             r = r * ((n-2)*(n-1) + 2)
     return r
 
-n = int(input("Введите число n: "))
-
-start_time = time.time()
-f_rec = F_rec(n)
-end_time = time.time()
-recursive_time = end_time - start_time
-
-start_time = time.time()
-f_iter = F_iter(n)
-end_time = time.time()
-iterative_time = end_time - start_time
-
-print("F({}) = {} (рекурсивно в {:.6f} секунд)".format(n, f_rec, recursive_time))
-print("F({}) = {} (итеративно в {:.6f} секунд)".format(n, f_iter, iterative_time))
-
-plt.plot([n], [recursive_time], 'ro', label='Рекурсивно')
-plt.plot([n], [iterative_time], 'bo', label='Итеративно')
-plt.xlabel('n')
-plt.ylabel('Время (с)')
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print('' + ' ' + 'Рекурсивно' +'Итеративно')
+for i in nums:
+    a.append(timeit.timeit(lambda: paf(i), number = 20000))
+    b.append(timeit.timeit(lambda: paf(i), number = 20000))
+    print(i, ' ', a[-1], '|', b[-1])
+plt.xlabel('Числовые значения')
+plt.ylabel('Время поиска')
+plt.plot(nums, a, label='Рекурсивно')
+plt.plot(nums, b, label='Итеративно')
 plt.legend()
 plt.show()
