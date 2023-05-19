@@ -10,19 +10,18 @@ import matplotlib.pyplot as plt
 # Рекурсивная функция
 def F_rec(n):
     if n == 1 or n == 2:
-        return 2
+        return 1
     else:
         return F_rec(n-2)*(n-1) + 2
 
 # Итеративная функция
 def F_iter(n):
     if n == 1 or n == 2:
-        return 2
+        return 1
     else:
         a, b = 1, 2
         for i in range(2, n+1)
             c = a*b + 2
-            a, b = b, c
         return c
 
 # Ввод числа n
