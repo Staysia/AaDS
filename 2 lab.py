@@ -12,7 +12,7 @@ slovar = {0:'ноль',1:'один',2:'два',3:'три',4:'четыре',5:'п
 file = open("text.txt",'r')
 a = ''
 num = []
-print('\nk=0\'')
+k = int(input())
 while True:
     a = file.readline()
     if a == '':
@@ -20,8 +20,9 @@ while True:
     res_a = (re.findall('[\d]*[\d]{%s}[1357]'%2, a))
     if len(res_a)>0:
         for i in range(len(res_a)):
-            if len(res_a[i]) % 2 == 0:
-                print(res_a[i])
-                for j in range(len(res_a[i])):
-                    if not((res_a[i])[j] in num):
-                        num.append((res_a[i])[j])
+            if len(res_a[i])%2 == 0:
+                if res_a > k:
+                    print(res_a[i])
+                    for j in range(len(res_a[i])):
+                        if not((res_a[i])[j] in num):
+                            num.append((res_a[i])[j])
