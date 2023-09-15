@@ -10,17 +10,23 @@ import matplotlib.pyplot as plt
 a = []
 b = []
 
-def rec(n):
+def recF(n):
     if n == 1 or n == 2:
         return 1
     elif n > 2:
-        return rec((n-2)*(n-1) + 2)
+        return recF(n-2) * (n-1) + 2
 
-def iter(n):
-    r = 1
-    for i in range(2, n+1):
-            r = r * ((n-2)*(n-1) + 2)
-    return r
+def iterf(n):
+    if n == 1 or n == 2:
+        return 1
+    else:
+        a = 1
+        b = 1
+        for i in range(3, n + 1):
+            c = a * (n-1) + 2
+            a = b
+            b = c
+        return b
 
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 print('№' + ' ' + 'Рекурсивно' +'Итеративно')
