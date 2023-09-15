@@ -107,14 +107,6 @@ else:
             F[i][j], F[i][j + n // 2] = F[i][j + n // 2], F[i][j]
 
 
-'''
-if np.linalg.det(F) > np.trace(F):
-    print(np.multiply(A, np.transpose(A)) - np.multiply(k, np.transpose(F)))
-else:
-    print(np.transpose(A) + np.tri(A) - np.transpose(F) * k)
-'''
-
-
 plt.figure(figsize=(12, 7))
 
 plt.subplot(2, 2, 1)
