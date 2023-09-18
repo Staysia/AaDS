@@ -4,9 +4,6 @@
 '''
 
 
-import matplotlib.pyplot as plt
-
-
 word = "компьютер"
 for i in range(len(word)):
     print(word[i])
