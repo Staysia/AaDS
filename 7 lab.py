@@ -26,7 +26,6 @@ class Computer:
     def slovo_kol_1(self):
         for i in range(len(self.word)):
             print(self.word[i])
-            isEndsCons(self.word[i1])
 
     def slovo_kol_2(self):
         for i1 in range(len(self.word)):
