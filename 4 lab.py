@@ -22,8 +22,6 @@ F и все матричные операции последовательно.
 
 
 
-from random import randint
-import copy
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -37,7 +35,8 @@ def print_matrix(matrix):
 
 n = 11
 k = 2
-A = [[randint(-10,10) for j in range(n)] for i in range(n)]
+A = np.random.randint(-10,10, (n,n),)
+# = [[randint(-10,10) for j in range(n)] for i in range(n)]
 numbers = [0] * 22
 znak = [0, 0]
 elements = [el for el in range(-10, 11)]
@@ -52,7 +51,7 @@ for i in range(n):
 numbers = numbers[:-1]
 
 print_matrix(A)
-F = A
+F = np.copy(A)
 
 print("Матрица E")
 for i in range(n // 2, n):
@@ -100,11 +99,51 @@ print(compos_e_2)
 if sum_e_3 > compos_e_2:
     for i in range(n // 2):
         for j in range(n // 2):
-            F[i][j], F[n - 1 - i][j] =  F[n - 1 - i][j],  F[i][j]
+            F[i][j], F[n - 1 - i][j] = F[n - 1 - i][j],  F[i][j]
 else:
     for i in range(n // 2):
         for j in range(n // 2):
             F[i][j], F[i][j + n // 2] = F[i][j + n // 2], F[i][j]
+
+print('Матрица F')
+print(F)
+
+o = np.linalg.det(F)
+print('linalg:', int(o))
+
+d = np.asarray(F)
+print('Diagonal (sum): ', np.trace(d))
+
+t_A = np.transpose(A)
+print('transpose A:', t_A)
+
+t_F = np.transpose(F)
+print('transpose F:', t_F)
+
+a = np.linalg.inv(A)
+print('linalg.inv A:', a)
+
+f = np.linalg.inv(F)
+print('linalg.inv F:', f)
+
+G = np.tril(A) # нижняя треугольная матрица
+print('G', G)
+
+
+if int(o) > np.trace(d):
+    d_1 = np.dot(A, a)
+    print(d_1)
+    d_2 = np.dot(k, f)
+    print(d_2)
+    d_3 = d_1 - d_2
+    print('результат:', d_3)
+else:
+    D_1_1 = t_A + G
+    print(D_1_1)
+    D_1_2 = D_1_1 - t_F
+    print(D_1_2)
+    D_2 = np.dot(D_1_2, k)
+    print(D_2)
 
 
 plt.figure(figsize=(12, 7))
