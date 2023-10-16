@@ -32,14 +32,15 @@ def print_matrix(matrix):
         print()
     print('\n')
 
-
-n = 11
-k = 2
-A = np.random.randint(-10,10, (n,n),)
-# = [[randint(-10,10) for j in range(n)] for i in range(n)]
+print("Число n больше 6:", end='')
+n = int(input())
+print("Введите число k:", end='')
+k = int(input())
+A = np.random.randint(-10,10, (n,n))
 numbers = [0] * 22
 znak = [0, 0]
 elements = [el for el in range(-10, 11)]
+
 
 for i in range(n):
     for j in range(n):
@@ -53,11 +54,13 @@ numbers = numbers[:-1]
 print_matrix(A)
 F = np.copy(A)
 
+
 print("Матрица E")
 for i in range(n // 2, n):
     for j in range(n // 2, n):
         print("%5d" % A[i][j], end=' ')
     print()
+
 
 #сумма в 3 области
 sum_e_3 = 0
@@ -70,7 +73,7 @@ for i in range(current_j, n, 2):
     for j in range(current_i, n):
         sum_e_3 += F[j][i] if F[j][i] > k else 0
 
-
+#произведение по периметру
 current_i = n // 2
 current_j = n // 2
 compos_e_2 = 1
@@ -105,28 +108,34 @@ else:
         for j in range(n // 2):
             F[i][j], F[i][j + n // 2] = F[i][j + n // 2], F[i][j]
 
+
 print('Матрица F')
 print(F)
 
+#определители
 o = np.linalg.det(F)
 print('linalg:', int(o))
 
+#диагональ
 d = np.asarray(F)
 print('Diagonal (sum): ', np.trace(d))
 
+#транспонированные матрицы
 t_A = np.transpose(A)
 print('transpose A:', t_A)
 
 t_F = np.transpose(F)
 print('transpose F:', t_F)
 
+#обратные матрицы
 a = np.linalg.inv(A)
 print('linalg.inv A:', a)
 
 f = np.linalg.inv(F)
 print('linalg.inv F:', f)
 
-G = np.tril(A) # нижняя треугольная матрица
+# нижняя треугольная матрица
+G = np.tril(A)
 print('G', G)
 
 
