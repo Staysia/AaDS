@@ -3,7 +3,7 @@ from tkinter import messagebox
 
 window = Tk()
 window.title('Авторизация')
-window.geometry('500x300')
+window.geometry('400x300')
 window.resizable(False, False)
 
 def check():
@@ -23,7 +23,7 @@ def check():
         #Информационное окно
         root = Toplevel()
         root.title('Информационное окно')
-        root.geometry('500x300')
+        root.geometry('400x300')
         root.resizable(False, False)
         root.attributes("-topmost", True)
         label_success = Label(root, text='Поздравляем! Вы успешно вошли!')
