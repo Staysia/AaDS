@@ -84,9 +84,9 @@ def check_log_in():
         while TRUE:
             line = file.readline()
             line = line.split()
-            if len(line) == 0:
+            if (line[0] != entry_username.get()) or (line[1] != entry_password.get()) or (line[0] != entry_username.get() and line[1] != entry_password.get()):
                 file.close()
-                messagebox.showerror('Ошибка!', 'Неверный лигин/пароль! Если вы ещё не зарегестрированны,то пройдите регестрацию перед входом!') 
+                messagebox.showerror('Ошибка!', 'Неверный лигин/пароль! Если вы ещё не зарегестрированны,то пройдите регестрацию перед взодом!') 
                 break
             elif line[0] == entry_username.get() and line[1] == entry_password.get():
                 file.close()
