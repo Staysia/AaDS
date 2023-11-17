@@ -87,6 +87,7 @@ def check_log_in():
             if len(line) == 0:
                 file.close()
                 messagebox.showerror('Ошибка!', 'Неверный лигин/пароль!')
+                break
             elif line[0] == entry_username.get() and line[1] == entry_password.get():
                 file.close()
 
