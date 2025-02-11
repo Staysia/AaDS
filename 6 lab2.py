@@ -19,22 +19,25 @@ for i in letters:
 
 for i1 in letters:
     for i2 in letters:
-        print(i1 + i2)
-        isEndsCons(i1 + i2)
+        if i1 != i2:
+            print(i1 + i2)
+            isEndsCons(i1 + i2)
 
 
 for i1 in letters:
     for i2 in word:
         for i3 in letters:
-            print(i1 + i2 + i3)
-            isEndsCons(i1 + i2 + i3)
+            if i1 != i2 and i2 != i3:
+                print(i1 + i2 + i3)
+                isEndsCons(i1 + i2 + i3)
 
 for i1 in letters:
     for i2 in word:
         for i3 in word:
             for i4 in letters:
-                print(i1 + i2 + i3 + i4)
-                isEndsCons(i1 + i2 + i3 + i4)
+                if i1 != i2 and i2 != i3 and i3 != i4:
+                    print(i1 + i2 + i3 + i4)
+                    isEndsCons(i1 + i2 + i3 + i4)
 
 
 for i1 in letters:
@@ -42,8 +45,9 @@ for i1 in letters:
         for i3 in word:
             for i4 in word:
                 for i5 in letters:
-                    print(i1 + i2 + i3 + i4 + i5)
-                    isEndsCons(i1 + i2 + i3 + i4 + i5)
+                    if i1 != i2 and i2 != i3 and i3 != i4 and i4 != i5:
+                        print(i1 + i2 + i3 + i4 + i5)
+                        isEndsCons(i1 + i2 + i3 + i4 + i5)
 
 
 for i1 in letters:
@@ -52,8 +56,9 @@ for i1 in letters:
             for i4 in word:
                 for i5 in word:
                     for i6 in letters:
-                        print(i1 + i2 + i3 + i4 + i5 + i6)
-                        isEndsCons(i1 + i2 + i3 + i4 + i5 + i6)
+                        if i1 != i2 and i2 != i3 and i3 != i4 and i4 != i5 and i5 != i6:
+                            print(i1 + i2 + i3 + i4 + i5 + i6)
+                            isEndsCons(i1 + i2 + i3 + i4 + i5 + i6)
 
 
 for i1 in letters:
@@ -63,8 +68,9 @@ for i1 in letters:
                 for i5 in word:
                     for i6 in word:
                         for i7 in letters:
-                            print(i1 + i2 + i3 + i4 + i5 + i6 + i7)
-                            isEndsCons(i1 + i2 + i3 + i4 + i5 + i6 + i7)
+                            if i1 != i2 and i2 != i3 and i3 != i4 and i4 != i5 and i5 != i6 and i6 != i7:
+                                print(i1 + i2 + i3 + i4 + i5 + i6 + i7)
+                                isEndsCons(i1 + i2 + i3 + i4 + i5 + i6 + i7)
 
 
 for i1 in letters:
@@ -75,8 +81,9 @@ for i1 in letters:
                     for i6 in word:
                         for i7 in word:
                             for i8 in letters:
-                                print(i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8)
-                                isEndsCons(i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8)
+                                if i1 != i2 and i2 != i3 and i3 != i4 and i4 != i5 and i5 != i6 and i6 != i7 and i7 != i8:
+                                    print(i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8)
+                                    isEndsCons(i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8)
 
 for i1 in letters:
     for i2 in word:
@@ -87,8 +94,9 @@ for i1 in letters:
                         for i7 in word:
                             for i8 in word:
                                 for i9 in letters:
-                                    print(i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9)
-                                    isEndsCons(i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9)
+                                    if i1 != i2 and i2 != i3 and i3 != i4 and i4 != i5 and i5 != i6 and i6 != i7 and i7 != i8 and i8 != i9:
+                                        print(i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9)
+                                        isEndsCons(i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9)
 
 
 print("Количество слов, которые начинаются и заканчиваются на согласные буквы:", count)
