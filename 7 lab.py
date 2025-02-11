@@ -28,23 +28,26 @@ class Computer:
     def slovo_kol_2(self):
         for i1 in self.letters:
             for i2 in self.letters:
-                print(i1 + i2)
-                isEndsCons(i1 + i2)
+                if i1 != i2:
+                    print(i1 + i2)
+                    isEndsCons(i1 + i2)
 
     def slovo_kol_3(self):
         for i1 in self.letters:
             for i2 in self.word:
                 for i3 in self.letters:
-                    print(i1 + i2 + i3)
-                    isEndsCons(i1 + i2 + i3)
+                    if i1 != i2 and i2 != i3:
+                        print(i1 + i2 + i3)
+                        isEndsCons(i1 + i2 + i3)
 
     def slovo_kol_4(self):
         for i1 in self.letters:
             for i2 in self.word:
                 for i3 in self.word:
                     for i4 in self.letters:
-                        print(i1 + i2 + i3 + i4)
-                        isEndsCons(i1 + i2 + i3 + i4)
+                        if i1 != i2 and i2 != i3 and i3 != i4:
+                            print(i1 + i2 + i3 + i4)
+                            isEndsCons(i1 + i2 + i3 + i4)
 
     def slovo_kol_5(self):
         for i1 in self.letters:
@@ -52,8 +55,9 @@ class Computer:
                 for i3 in self.word:
                     for i4 in self.word:
                         for i5 in self.letters:
-                            print(i1 + i2 + i3 + i4 + i5)
-                            isEndsCons(i1 + i2 + i3 + i4 + i5)
+                            if i1 != i2 and i2 != i3 and i3 != i4 and i4 != i5:
+                                print(i1 + i2 + i3 + i4 + i5)
+                                isEndsCons(i1 + i2 + i3 + i4 + i5)
 
     def slovo_kol_6(self):
         for i1 in self.letters:
@@ -62,8 +66,9 @@ class Computer:
                     for i4 in self.word:
                         for i5 in self.word:
                             for i6 in self.letters:
-                                print(i1 + i2 + i3 + i4 + i5 + i6)
-                                isEndsCons(i1 + i2 + i3 + i4 + i5 + i6)
+                                if i1 != i2 and i2 != i3 and i3 != i4 and i4 != i5 and i5 != i6:
+                                    print(i1 + i2 + i3 + i4 + i5 + i6)
+                                    isEndsCons(i1 + i2 + i3 + i4 + i5 + i6)
 
     def slovo_kol_7(self):
         for i1 in self.letters:
@@ -73,8 +78,9 @@ class Computer:
                         for i5 in self.word:
                             for i6 in self.word:
                                 for i7 in self.letters:
-                                    print(i1 + i2 + i3 + i4 + i5 + i6 + i7)
-                                    isEndsCons(i1 + i2 + i3 + i4 + i5 + i6 + i7)
+                                    if i1 != i2 and i2 != i3 and i3 != i4 and i4 != i5 and i5 != i6 and i6 != i7:
+                                        print(i1 + i2 + i3 + i4 + i5 + i6 + i7)
+                                        isEndsCons(i1 + i2 + i3 + i4 + i5 + i6 + i7)
 
     def slovo_kol_8(self):
         for i1 in self.letters:
@@ -85,8 +91,9 @@ class Computer:
                             for i6 in self.word:
                                 for i7 in self.word:
                                     for i8 in self.letters:
-                                        print(i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8)
-                                        isEndsCons(i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8)
+                                        if i1 != i2 and i2 != i3 and i3 != i4 and i4 != i5 and i5 != i6 and i6 != i7 and i7 != i8:
+                                            print(i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8)
+                                            isEndsCons(i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8)
 
     def slovo_kol_9(self):
         for i1 in self.letters:
@@ -98,8 +105,9 @@ class Computer:
                                 for i7 in self.word:
                                     for i8 in self.word:
                                         for i9 in self.letters:
-                                            print(i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9)
-                                            isEndsCons(i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9)
+                                            if i1 != i2 and i2 != i3 and i3 != i4 and i4 != i5 and i5 != i6 and i6 != i7 and i7 != i8 and i8 != i9:
+                                                print(i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9)
+                                                isEndsCons(i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9)
 
 c = Computer()
 c.slovo_kol_1()
