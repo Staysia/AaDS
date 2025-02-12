@@ -24,7 +24,7 @@ with open("text.txt",'r') as f:
         kol_1 += 1
     else:
         # Находим все восьмеричные числа
-        numbers = re.findall(r'\b[0-7]+\b', text)  # \b - граница слова
+        numbers = re.findall(r'\b[0-7]+\b', text)  # \b - граница слова, [0-7]+ ищет последовательности цифр от 0 до 7
         i_z = set()
         for num in numbers:
             if (len(num) > k) and (len(num) % 2 == 0) and (int(num, 8) % 2 != 0) and (int(num, 8) <= 4096):
