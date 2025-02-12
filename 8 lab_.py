@@ -1,3 +1,12 @@
+'''
+Требуется для своего варианта второй части л.р. №6 (усложненной программы) или ее объектно-ориентированной реализации (л.р. №7) разработать
+реализацию с использованием графического интерфейса. Допускается использовать любую графическую библиотеку питона.  Рекомендуется использовать
+внутреннюю библиотеку питона  tkinter.
+В программе должны быть реализованы минимум одно окно ввода, одно окно вывода, текстовое поле, кнопка.
+'''
+
+
+
 import tkinter as tk
 from tkinter import ttk
 from tkinter import scrolledtext
@@ -6,6 +15,32 @@ class ComputerGUI:
     def __init__(self, master):
         self.master = master
         master.title("Комбинации букв из слова 'компьютер'")
+
+        # текстовое поле
+        self.input_label = ttk.Label(master, text="Поиск лексем из букв слова «компьютер»", font='Arial 12')
+        self.input_label.pack(anchor="n")
+        self.input_label = ttk.Label(master, text="Cоставленные лексемы начинаются и заканчиваются на согласные буквы",
+                                     font='Arial 12')
+        self.input_label.pack(anchor="n")
+
+        self.input_label = ttk.Label(master, text="Введите слово 'компьютер' или любое другое слово, количество букв которого не привышает 9: ", font='Arial 12')
+        self.input_label.pack(anchor="n", pady=8)
+
+        #окна ввода
+        self.word_label = ttk.Label(master, text="Введите слово:")
+        self.word_label.pack(pady=5)
+
+        self.word_entry = ttk.Entry(master)
+        self.word_entry.pack(pady=5)
+        self.word_entry.insert(0, "компьютер")  # Значение по умолчанию
+
+        # Label и Entry для ввода букв
+        self.letters_label = ttk.Label(master, text="Введите буквы с которых будут начинаться и заканчиваться лексемы:")
+        self.letters_label.pack(pady=5)
+
+        self.letters_entry = ttk.Entry(master)
+        self.letters_entry.pack(pady=5)
+        self.letters_entry.insert(0, "кмптр")  # Значение по умолчанию
 
         self.computer = Computer()
         self.count = 0
@@ -47,39 +82,49 @@ class ComputerGUI:
         self.text_area.pack(pady=10)
 
     def isEndsCons(self, word):
-        if word[0] in self.computer.letters and word[-1] in self.computer.letters:
+        letters = self.letters_entry.get()
+        if word and word[0] in letters and word[-1] in letters:  # Added word check
             self.count += 1
-            return True  # Indicate match for additional features
+            return True
         return False
 
     def display_len1(self):
+        self.update_word_and_letters()
         self.text_area.delete("1.0", tk.END)
         output = "\n".join(self.computer.letters)
         self.text_area.insert(tk.END, output)
         self.count = 0 # Сбрасываем счетчик. Считаем он нам не нужен для данного случая
 
     def display_len2(self):
+        self.update_word_and_letters()
         self.display_combinations(self.computer.slovo_kol_2_generator(), 2)
 
     def display_len3(self):
-         self.display_combinations(self.computer.slovo_kol_3_generator(), 3)
+        self.update_word_and_letters()
+        self.display_combinations(self.computer.slovo_kol_3_generator(), 3)
 
     def display_len4(self):
+        self.update_word_and_letters()
         self.display_combinations(self.computer.slovo_kol_4_generator(), 4)
 
     def display_len5(self):
+        self.update_word_and_letters()
         self.display_combinations(self.computer.slovo_kol_5_generator(), 5)
 
     def display_len6(self):
+        self.update_word_and_letters()
         self.display_combinations(self.computer.slovo_kol_6_generator(), 6)
 
     def display_len7(self):
+        self.update_word_and_letters()
         self.display_combinations(self.computer.slovo_kol_7_generator(), 7)
 
     def display_len8(self):
+        self.update_word_and_letters()
         self.display_combinations(self.computer.slovo_kol_8_generator(), 8)
 
     def display_len9(self):
+        self.update_word_and_letters()
         self.display_combinations(self.computer.slovo_kol_9_generator(), 9)
 
     def display_combinations(self, combination_generator, length):
@@ -91,6 +136,12 @@ class ComputerGUI:
            self.isEndsCons(comb)
         self.text_area.insert(tk.END, output)
         self.count_label.config(text=f"Количество комбинаций длины {length}, начинающихся и заканчивающихся согласными: {self.count}")
+
+    def update_word_and_letters(self):
+        word = self.word_entry.get()
+        letters = self.letters_entry.get()
+        self.computer.word = word
+        self.computer.letters = letters
 
 class Computer:
     def __init__(self):
