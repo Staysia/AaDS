@@ -40,12 +40,20 @@ min_age = min(ages)
 max_age = max(ages)
 
 # Подсчет количества пассажиров с минимальным и максимальным возрастом
-count_min_age = sum(1 for a in ages if a == min_age)
-count_max_age = sum(1 for a in ages if a == max_age)
+count_min_age = 0
+count_max_age = 0
+survived_min_age = 0
+survived_max_age = 0
 
-# Подсчет выживших среди пассажиров с минимальным и максимальным возрастом
-survived_min_age = sum(1 for i, a in enumerate(ages) if a == min_age and survived[i] == 1)
-survived_max_age = sum(1 for i, a in enumerate(ages) if a == max_age and survived[i] == 1)
+for i in range(len(ages)):
+    if ages[i] == min_age:
+        count_min_age += 1
+        if survived[i] == 1:
+            survived_min_age += 1
+    if ages[i] == max_age:
+        count_max_age += 1
+        if survived[i] == 1:
+            survived_max_age += 1
 
 # Вывод результатов
 print(f"Минимальный возраст: {min_age}, Количество пассажиров: {count_min_age}, Выживших: {survived_min_age}")
