@@ -14,7 +14,6 @@ print("введите k:", end=" ")
 k = int(input())
 print('')
 print('числа, подходящие под условие задачи: ')
-buffer = ''
 num = ''
 kol_1 = 0
 kol_2 = 0
