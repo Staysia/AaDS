@@ -291,9 +291,9 @@ def game():
 
         # превращение
         if poz2_y == 0 and pole[poz1_y][poz1_x] == 1:
-            pole[poz1_y][poz1_x] = 2  # Player piece becomes king
+            pole[poz1_y][poz1_x] = 2  # Дамка игрока
         if poz2_y == 9 and pole[poz1_y][poz1_x] == 3:
-            pole[poz1_y][poz1_x] = 4  # AI piece becomes king
+            pole[poz1_y][poz1_x] = 4  # Дамка ИИ
 
         # делаем ход
         pole[poz2_y][poz2_x] = pole[poz1_y][poz1_x]
@@ -307,7 +307,7 @@ def game():
         while (poz1_x != x_poz) or (poz1_y != y_poz):
             x_poz += kx
             y_poz += ky
-            if pole[y_poz][x_poz] != 0 and (x_poz, y_poz) != (poz1_x, poz1_y): # Ensure not removing the origin
+            if pole[y_poz][x_poz] != 0 and (x_poz, y_poz) != (poz1_x, poz1_y):
                 pole[y_poz][x_poz] = 0
                 if f: vivod(-1, -1, -1, -1)  # рисуем игровое поле
 
@@ -364,44 +364,41 @@ def game():
         for y in range(10):  # сканируем всё поле
             for x in range(10):
                 if pole[y][x] == 3:  # пешка
-                    # Prioritize moves that put the checker next to an enemy
-                    for ix, iy in [(-1, 1), (1, 1), (-1, -1), (1, -1)]:  # All adjacent squares
+                    for ix, iy in [(-1, 1), (1, 1), (-1, -1), (1, -1)]:  # Все ходы
                         if 0 <= y + iy <= 9 and 0 <= x + ix <= 9:
-                            if pole[y + iy][x + ix] == 0:  # Empty
-                                # Check if any enemy is nearby this square
+                            if pole[y + iy][x + ix] == 0:
                                 enemy_nearby = False
                                 for ex, ey in [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]:
-                                    if 0 <= y + iy + ey <= 9 and 0 <= x + ix + ex <= 9:  # check nearby cells
+                                    if 0 <= y + iy + ey <= 9 and 0 <= x + ix + ex <= 9:  # проверка близлижайших клеток
                                         if pole[y + iy + ey][x + ix + ex] in (1, 2):
                                             enemy_nearby = True
                                             break
                                 if enemy_nearby:
-                                    spisok.append(((x, y), (x + ix, y + iy)))  # Move closer to the enemy!
-                    # Normal moves that still can be made if no enemy is close
-                    for ix, iy in [(-1, 1), (1, 1)]:  # Normal moves for AI (forward)
+                                    spisok.append(((x, y), (x + ix, y + iy)))  # Подход к шашкам противника
+                    # Обычные ходы, которые все еще можно выполнять, если поблизости нет противника
+                    for ix, iy in [(-1, 1), (1, 1)]:  # обычные движения ИИ вперед
                         if 0 <= y + iy <= 9 and 0 <= x + ix <= 9:
                             if pole[y + iy][x + ix] == 0:
-                                spisok.append(((x, y), (x + ix, y + iy)))  # Offer the checker
-                elif pole[y][x] == 4:  # дамка (Queen)
-                    # Prioritize moves that put the checker next to an enemy
+                                spisok.append(((x, y), (x + ix, y + iy)))
+                elif pole[y][x] == 4:  # дамка
                     for ix, iy in [(-1, -1), (-1, 1), (1, -1), (1, 1)]:
-                        for i in range(1, 10):  # короны can move further
+                        for i in range(1, 10):
                             if 0 <= y + iy * i <= 9 and 0 <= x + ix * i <= 9:
-                                enemy_nearby = False  # check and see if enemy is nearby
+                                enemy_nearby = False  # движение
                                 for ex, ey in [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]:
-                                    if 0 <= y + iy * i + ey <= 9 and 0 <= x + ix * i + ex <= 9:  # check nearby cells
+                                    if 0 <= y + iy * i + ey <= 9 and 0 <= x + ix * i + ex <= 9:  # проверка близлижайших клеток
                                         if pole[y + iy * i + ey][x + ix * i + ex] in (1, 2):
                                             enemy_nearby = True
                                             break
                                 if enemy_nearby:
                                     spisok.append(((x, y), (x + ix * i, y + iy * i)))
 
-                    # If no closer moves can be found, still offer
+                    # если нет рядом противника
                     for ix, iy in [(-1, -1), (-1, 1), (1, -1), (1, 1)]:
-                        for i in range(1, 10):  # короны can move further
+                        for i in range(1, 10):
                             if 0 <= y + iy * i <= 9 and 0 <= x + ix * i <= 9:
                                 if pole[y + iy * i][x + ix * i] == 0:
-                                    spisok.append(((x, y), (x + ix * i, y + iy * i)))  # Offer the checker
+                                    spisok.append(((x, y), (x + ix * i, y + iy * i)))  # перестановка
 
         return spisok
 
