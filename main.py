@@ -104,7 +104,6 @@ def game():
         kx = 1 if x_poz_1 < x_poz_2 else -1
         ky = 1 if y_poz_1 < y_poz_2 else -1
 
-        # Added checks before the next loop
         if x_poz_1 != -1 and y_poz_1 != -1 and x_poz_2 != -1 and y_poz_2 != -1:
             for i in range(abs(x_poz_1 - x_poz_2)):  # анимация перемещения пешки
                 for ii in range(33):
