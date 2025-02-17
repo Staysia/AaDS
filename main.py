@@ -476,6 +476,8 @@ def check_registration():
     check_password = entry_password_r.get()
     if (check_login == '') or (check_password == '') or ((check_login == '') and (check_password == '')):
         messagebox.showerror('Информационное окно', 'Ошибка! Заполните пустое поле / пустые поля!')
+    if len(check_login) < 6 or len(check_password) < 6:
+        messagebox.showerror("Ошибка регистрации!", "Логин и пароль должны состоять не менее чем из 6 символов!")
     else:
         file = open('login.txt', 'w')
         file.write(entry_username_r.get() + ' ' + entry_password_r.get() + '\n')
